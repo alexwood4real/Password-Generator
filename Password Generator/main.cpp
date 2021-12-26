@@ -25,5 +25,5 @@ int main(int argc, const char * argv[])
     
     // Making a change here to test
     
-    // driveFunction();
+    driveFunction();
 }

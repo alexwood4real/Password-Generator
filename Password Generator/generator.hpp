@@ -10,4 +10,8 @@
 
 #include <stdio.h>
 
+
+void driveFunction();
+void passwordGenerate();
+
 #endif /* generator_hpp */
