@@ -13,5 +13,6 @@
 
 void driveFunction();
 void passwordGenerate();
+void randomize(char *arr[]);
 
 #endif /* generator_hpp */
