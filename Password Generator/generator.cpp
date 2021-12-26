@@ -4,6 +4,7 @@
 //
 //  Created by OG Brown Skin on 12/24/21.
 //
+#include <algorithm>
 
 #include "generator.hpp"
 #include "iostream"
@@ -19,6 +20,9 @@ char s1; // special characters
 
 // array used to hold the characters of password - will be shuffled
 char password[12];
+
+// string that will hold the password
+std::string passwordString;
 
 // function when program opens
 void driveFunction()
@@ -84,9 +88,24 @@ void passwordGenerate()
     
     // randomize passoword - error here need to fix 
     randomize(password);
+    
+    // convert to string
+    passwordString = "";
+    for(int i = 0; i < 12; i++)
+    {
+        passwordString += password[i];
+    }
+    
+    std::cout << "Your password is: " << passwordString << "\n";
+    
 }
 
-void randomize(char *arr[])
+void randomize(char* arr)
 {
-    std::cout << "test";
+    srand(time(NULL)); // uses different value every time - has warning
+    for(int i = 11; i > 0; i--)
+    {
+        int j = rand() % (i+1);
+        std::swap(arr[i], arr[j]);
+    }
 }
