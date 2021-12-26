@@ -12,14 +12,9 @@
 // picks direction to take
 int choice;
 
-// will be the 12 variables used to store in password
-char l1, l2, l3, l4; // lower case
-char u1, u2, u3, u4; // upper case
-char n1, n2, n3; // numbers
-char s1; // special characters
-
 // array used to hold the characters of password - will be shuffled
 char password[12];
+
 
 // string that will hold the password
 std::string passwordString;
@@ -52,39 +47,27 @@ void driveFunction()
 
 void passwordGenerate()
 {
-    // defines random lower case
-    l1 = 97 + rand() % 26;
-    l2 = 97 + rand() % 26;
-    l3 = 97 + rand() % 26;
-    l4 = 97 + rand() % 26;
     
-    // defines random upper case
-    u1 = 65 + rand() % 26;
-    u2 = 65 + rand() % 26;
-    u3 = 65 + rand() % 26;
-    u4 = 65 + rand() % 26;
+    // adds special character
+    password[0] = 32 + rand() % 15;
     
-    // defines random numbers
-    n1 = 48 + rand() % 10;
-    n2 = 48 + rand() % 10;
-    n3 = 48 + rand() % 10;
+    // adds lower case
+    for(int i = 1; i < 5; i++)
+    {
+        password[i] = 97 + (rand() % 26);
+    }
     
-    // defines random special characters
-    s1 = 32 + rand() % 15;
+    // adds upper case
+    for(int i = 5; i < 9; i++)
+    {
+        password[i] = 65 + (rand() % 26);
+    }
     
-    // define unshuffled password - may simplify above with 3 for-loops
-    password[0] = l1;
-    password[1] = l2;
-    password[2] = l3;
-    password[3] = l4;
-    password[4] = u1;
-    password[5] = u2;
-    password[6] = u3;
-    password[7] = u4;
-    password[8] = n1;
-    password[9] = n2;
-    password[10] = n3;
-    password[11] = s1;
+    // adds numbers
+    for(int i = 9; i < 12; i++)
+    {
+        password[i] = 48 + (rand() % 10);
+    }
     
     // randomize passoword - error here need to fix 
     randomize(password);
