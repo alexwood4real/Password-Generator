@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		621AB07E2777FEE600DCF633 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 621AB07D2777FEE600DCF633 /* main.cpp */; };
+		621AB086277801F800DCF633 /* generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 621AB084277801F800DCF633 /* generator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		621AB07A2777FEE600DCF633 /* Password Generator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Password Generator"; sourceTree = BUILT_PRODUCTS_DIR; };
 		621AB07D2777FEE600DCF633 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		621AB084277801F800DCF633 /* generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = generator.cpp; sourceTree = "<group>"; };
+		621AB085277801F800DCF633 /* generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = generator.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				621AB07D2777FEE600DCF633 /* main.cpp */,
+				621AB084277801F800DCF633 /* generator.cpp */,
+				621AB085277801F800DCF633 /* generator.hpp */,
 			);
 			path = "Password Generator";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				621AB07E2777FEE600DCF633 /* main.cpp in Sources */,
+				621AB086277801F800DCF633 /* generator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
