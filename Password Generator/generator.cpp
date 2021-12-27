@@ -9,12 +9,10 @@
 #include "generator.hpp"
 #include "iostream"
 
-// picks direction to take
-int choice;
-
 // array used to hold the characters of password - will be shuffled
 char password[12];
 
+int choice;
 
 // string that will hold the password
 std::string passwordString;
@@ -22,27 +20,10 @@ std::string passwordString;
 // function when program opens
 void driveFunction()
 {
-    choice = 0;
-    std::cout << "Please pick an option\n"
-    << "1. Generate new password\n"
-    << "2. Pull existing password\n";
+    std::cout << "Generating a random and unique password!\n";
     
-    std::cin >> choice;
+    passwordGenerate();
     
-    switch(choice)
-    {
-        case 1:
-            // generates new password
-            passwordGenerate();
-            break;
-        case 2:
-            // pull password - will do later
-            std::cout << "Case 2 works";
-            break;
-        default:
-            std::cout << "Please pick an option";
-            break;
-    } // close switch
 } // close driveFunction
 
 void passwordGenerate()
@@ -79,7 +60,30 @@ void passwordGenerate()
         passwordString += password[i];
     }
     
+    int choice = 0;
+    
     std::cout << "Your password is: " << passwordString << "\n";
+    std::cout << "Would you like to create a new password?\n"
+    << "Press 1 to create new password, press 0 to destroy and exit program.\n";
+    std::cin >> choice;
+    
+    if(choice == 1)
+    {
+        // create another password
+        passwordGenerate();
+    }
+    else if (choice == 0)
+    {
+        // destroy and exit progam
+        passwordString = "";
+        std::cout << "Password deleted. Have a nice day\n";
+        exit(0);
+    }
+    else
+    {
+        // exit program - their loss
+        exit(0);
+    }
     
 }
 
