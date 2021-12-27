@@ -1,4 +1,3 @@
 # Password-Generator
-Welcome to my password generator. This is just a personal project I am working on so I can make my own secure passwords.
-I plan on adding way more feartures to this as I continue working on it. As I progress, feel free to download and make your own passwords, and/or
-pull to help edit my code and make something cooler. 
+Welcome to my password generator. This was a little project I did for myself so I have a method of creating safe and secure passwords. 
+Download if you would like, and if you have any suggestions please email me.
