@@ -14,6 +14,7 @@
 void driveFunction();
 void passwordGenerate();
 void phonePassword();
+void quitFunction();
 void randomize(char* arr);
 
 #endif /* generator_hpp */

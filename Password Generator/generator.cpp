@@ -27,8 +27,9 @@ std::string passwordString;
 void driveFunction()
 {
     int choice = 0;
-    std::cout << "Welcome! Press 1 to generate a phone password.\n"
-    << "Press 2 to generate a phone password.";
+    std::cout << "Welcome!\n"
+    << "Press 1 to generate a computer password.\n"
+    << "Press 2 to generate a phone password.\n";
     
     std::cin >> choice;
     
@@ -39,7 +40,8 @@ void driveFunction()
     }
     else
     {
-        
+        // generates phone password
+        phonePassword();
     }
     
     
@@ -79,31 +81,11 @@ void passwordGenerate()
         passwordString += password[i];
     }
     
-    int choice = 0;
+    std::cout << "Your password is: " << passwordString << "\n";
     
-    std::cout << "Your password is: " << passwordString << "\n\n";
+    // call quit function
+    quitFunction();
     
-    
-    std::cout << "Would you like to create a new password?\n"
-    << "Press 1 to create new password, press 0 to create a phone password.\n"
-    << "Press anything else to exit\n\n";
-    std::cin >> choice;
-    
-    if(choice == 1)
-    {
-        // create another password
-        passwordGenerate();
-    }
-    else if (choice == 0)
-    {
-        // creates phone password
-        phonePassword();
-    }
-    else
-    {
-        // exit program - their loss
-        exit(0);
-    }
     
 }
 
@@ -118,7 +100,48 @@ void phonePassword()
         cellPassword.push_back(48 + (rand() % 10));
     }
     
+    // convert to string
+    passwordString = "";
     
+    // makes vector into password string
+    for(int i = 0; i < cellPassword.size(); i++)
+    {
+        passwordString += cellPassword[i];
+    }
+    
+    std::cout << "Your phone password is: " << passwordString << "\n";
+    
+    // call quit funciton
+    quitFunction();
+    
+}
+
+void quitFunction()
+{
+    choice = 0;
+    
+    std::cout << "What would you like to do?\n"
+    << "Press 1 to create a computer password.\n"
+    << "Press 2 to create a phone password.\n"
+    << "Press 0 to quit.\n";
+    
+    std::cin >> choice;
+    
+    if(choice == 1)
+    {
+        // create another password
+        passwordGenerate();
+    }
+    else if (choice == 2)
+    {
+        // creates phone password
+        phonePassword();
+    }
+    else
+    {
+        // exit program - their loss
+        exit(0);
+    }
 }
 
 void randomize(char* arr)
