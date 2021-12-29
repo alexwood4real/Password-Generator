@@ -13,9 +13,6 @@
 // array used to hold the characters of password - will be shuffled
 char password[12];
 
-// will hold phone password
-std::vector<char> cellPassword;
-
 // global variables used
 int choice;
 int size;
@@ -91,6 +88,9 @@ void passwordGenerate()
 
 void phonePassword()
 {
+    // will hold phone password - creates new vector every time
+    std::vector<char> cellPassword;
+    
     std::cout << "How long would you like your password?\n";
     std::cin >> size;
     
