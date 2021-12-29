@@ -13,6 +13,7 @@
 
 void driveFunction();
 void passwordGenerate();
+void phonePassword();
 void randomize(char* arr);
 
 #endif /* generator_hpp */

@@ -5,6 +5,7 @@
 //  Created by OG Brown Skin on 12/24/21.
 //
 #include <algorithm>
+#include <vector>
 
 #include "generator.hpp"
 #include "iostream"
@@ -12,7 +13,12 @@
 // array used to hold the characters of password - will be shuffled
 char password[12];
 
+// will hold phone password
+std::vector<char> cellPassword;
+
+// global variables used
 int choice;
+int size;
 
 // string that will hold the password
 std::string passwordString;
@@ -20,9 +26,22 @@ std::string passwordString;
 // function when program opens
 void driveFunction()
 {
-    std::cout << "Generating a random and unique password!\n";
+    int choice = 0;
+    std::cout << "Welcome! Press 1 to generate a phone password.\n"
+    << "Press 2 to generate a phone password.";
     
-    passwordGenerate();
+    std::cin >> choice;
+    
+    if(choice == 1)
+    {
+        // generates computer password
+        passwordGenerate();
+    }
+    else
+    {
+        
+    }
+    
     
 } // close driveFunction
 
@@ -62,9 +81,12 @@ void passwordGenerate()
     
     int choice = 0;
     
-    std::cout << "Your password is: " << passwordString << "\n";
+    std::cout << "Your password is: " << passwordString << "\n\n";
+    
+    
     std::cout << "Would you like to create a new password?\n"
-    << "Press 1 to create new password, press 0 to destroy and exit program.\n";
+    << "Press 1 to create new password, press 0 to create a phone password.\n"
+    << "Press anything else to exit\n\n";
     std::cin >> choice;
     
     if(choice == 1)
@@ -74,16 +96,28 @@ void passwordGenerate()
     }
     else if (choice == 0)
     {
-        // destroy and exit progam
-        passwordString = "";
-        std::cout << "Password deleted. Have a nice day\n";
-        exit(0);
+        // creates phone password
+        phonePassword();
     }
     else
     {
         // exit program - their loss
         exit(0);
     }
+    
+}
+
+void phonePassword()
+{
+    std::cout << "How long would you like your password?\n";
+    std::cin >> size;
+    
+    // generates random password of integers, doesn't need randomize
+    for(int i = 0; i < size; i++)
+    {
+        cellPassword.push_back(48 + (rand() % 10));
+    }
+    
     
 }
 
