@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		621AB07E2777FEE600DCF633 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 621AB07D2777FEE600DCF633 /* main.cpp */; };
 		621AB086277801F800DCF633 /* generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 621AB084277801F800DCF633 /* generator.cpp */; };
+		62D7ADD52882827700124CE5 /* computerPassword.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62D7ADD42882827700124CE5 /* computerPassword.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,9 @@
 		621AB07D2777FEE600DCF633 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		621AB084277801F800DCF633 /* generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = generator.cpp; sourceTree = "<group>"; };
 		621AB085277801F800DCF633 /* generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = generator.hpp; sourceTree = "<group>"; };
+		62D7ADD2288279EE00124CE5 /* password.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = password.h; sourceTree = "<group>"; };
+		62D7ADD328827B4A00124CE5 /* computerPassword.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = computerPassword.h; sourceTree = "<group>"; };
+		62D7ADD42882827700124CE5 /* computerPassword.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = computerPassword.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				621AB07D2777FEE600DCF633 /* main.cpp */,
+				62D7ADD328827B4A00124CE5 /* computerPassword.h */,
+				62D7ADD2288279EE00124CE5 /* password.h */,
 				621AB084277801F800DCF633 /* generator.cpp */,
 				621AB085277801F800DCF633 /* generator.hpp */,
+				62D7ADD42882827700124CE5 /* computerPassword.cpp */,
 			);
 			path = "Password Generator";
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				621AB07E2777FEE600DCF633 /* main.cpp in Sources */,
+				62D7ADD52882827700124CE5 /* computerPassword.cpp in Sources */,
 				621AB086277801F800DCF633 /* generator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
