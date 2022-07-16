@@ -12,6 +12,8 @@
 
 // array used to hold the characters of password - will be shuffled
 char password[12];
+// holds valid special characters - only 7 for smooth modular arithmatic
+char special[] = {'!', '@', '#', '$', '%', '^', '&'};
 
 // global variables used
 int choice;
@@ -48,7 +50,7 @@ void passwordGenerate()
 {
     
     // adds special character
-    password[0] = 32 + rand() % 15;
+    password[0] = special[rand() % 7];
     
     // adds lower case
     for(int i = 1; i < 5; i++)
