@@ -11,5 +11,5 @@
 int main(int argc, const char * argv[])
 {
     // starts the program
-    driveFunction();
+    driver();
 }

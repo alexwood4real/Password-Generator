@@ -11,10 +11,10 @@
 #include <stdio.h>
 
 
-void driveFunction();
-void passwordGenerate();
-void phonePassword();
-void quitFunction();
+void driver();
+void password_generate();
+void phone_password();
+void quit();
 void randomize(char* arr);
 
 #endif /* generator_hpp */
