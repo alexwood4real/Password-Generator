@@ -10,10 +10,16 @@
 #include "generator.hpp"
 #include "iostream"
 
+/* computer password constants constants */
+constexpr std::size_t SIZE = 12;
+constexpr std::size_t SPECIAL_IDX = 0;
+constexpr std::size_t LOWER_IDX = 1;
+constexpr std::size_t UPPER_IDX = 5;
+constexpr std::size_t NUM_IDX = 9;
+
 /* holds valid special characters - only 7 for smooth modular arithmatic */
 static char special[] = {'!', '@', '#', '$', '%', '^', '&'};
 
-// function when program opens
 void driver()
     {
     std::cout << "Welcome!\n";
@@ -23,19 +29,20 @@ void driver()
     while( true )
         {
         std::cout << "Press 1 to generate a computer password.\n"
-                  << "Press 2 to generate a phone password.\n";
+                  << "Press 2 to generate a phone password.\n"
+                  << "Press any other key to quit.\n";
             
         std::cin >> choice;
         
         /* generates password */
         switch( choice )
             {
-            case PASSWORD_PHONE:
-                phone_password();
-                break;
-                    
             case PASSWORD_COMPUTER:
                 computer_password();
+                break;
+                    
+            case PASSWORD_PHONE:
+                phone_password();
                 break;
                     
             default:
@@ -46,40 +53,36 @@ void driver()
 
 void computer_password()
     {
-    // array used to hold the characters of password - will be shuffled
-    char password[ 12 ];
+    /* array used to hold the characters of password */
+    char password[ SIZE + 1 ];
+    password[ SIZE ] = '\0';
     
-    // adds special character
-    password[ 0 ] = special[ rand() % 7 ];
+    /* special character */
+    password[ SPECIAL_IDX ] = special[ rand() % 7 ];
     
-    // adds lower case
-    for( int i = 1; i < 5; i++ )
+    /* lower case letters */
+    for( int i = LOWER_IDX; i < UPPER_IDX; i++ )
         {
-        password[ i ] = 97 + ( rand() % 26 );
+        password[ i ] = 'a' + ( rand() % 26 );
         }
     
-    // adds upper case
-    for( int i = 5; i < 9; i++ )
+    /* upper case letters */
+    for( int i = UPPER_IDX; i < NUM_IDX; i++ )
         {
-        password[ i ] = 65 + ( rand() % 26 );
+        password[ i ] = 'A' + ( rand() % 26 );
         }
     
-    // adds numbers
-    for( int i = 9; i < 12; i++ )
+    /* numbers */
+    for( int i = NUM_IDX; i < SIZE; i++ )
         {
-        password[ i ] = 48 + ( rand() % 10 );
+        password[ i ] = '0' + ( rand() % 10 );
         }
     
-    // randomize passoword - error here need to fix, is this doing anything?
+    /* shuffle characters */
     randomize( password );
     
-    // convert to string
-    std::string password_string = "";
-    for( int i = 0; i < 12; i++ )
-        {
-        password_string += password[ i ];
-        }
-    
+    /* returning string */
+    std::string password_string = password;
     std::cout << "Your password is: " << password_string << "\n";
     } /* computer_password() */
 
