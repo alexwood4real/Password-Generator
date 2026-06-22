@@ -5,10 +5,14 @@
 //  Created by OG Brown Skin on 12/24/21.
 //
 #include <algorithm>
+#include <random>
 #include <vector>
 
 #include "generator.hpp"
 #include "iostream"
+
+/* static functions */
+static void shuffle( char* array );
 
 /* computer password constants constants */
 constexpr std::size_t SIZE = 12;
@@ -79,7 +83,7 @@ void computer_password()
         }
     
     /* shuffle characters */
-    randomize( password );
+    shuffle( password );
     
     /* returning string */
     std::string password_string = password;
@@ -114,12 +118,21 @@ void phone_password()
     
     } /* phone_password() */
 
-void randomize( char* arr )
+/* static functions */
+static void shuffle( char* arr )
     {
-    srand( time(NULL) ); // uses different value every time - has warning
-    for( int i = 11; i > 0; i-- )
+    /* hardware-based truly random seed */
+    std::random_device rd;
+
+    /* feed the seed into the Mersenne Twister engine */
+    std::mt19937 engine( rd() );
+
+    /* inclusive range of randong number */
+    std::uniform_int_distribution<int> dist( 0, SIZE - 1 );
+
+    for( int i = SIZE - 1; i > 0; i-- )
         {
-        int j = rand() % ( i + 1 );
+        int j = dist( engine );
         std::swap( arr[ i ], arr[ j ] );
         }
-    } /* randomize */
+    } /* shuffle */

@@ -23,6 +23,5 @@ typedef enum : int
 void driver();
 void computer_password();
 void phone_password();
-void randomize(char* arr);
 
 #endif /* generator_hpp */
