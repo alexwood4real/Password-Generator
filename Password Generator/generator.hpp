@@ -10,11 +10,19 @@
 
 #include <stdio.h>
 
+/* Types */
+typedef enum : int
+    {
+    PASSWORD_COMPUTER = 1,
+    PASSWORD_PHONE,
+        
+    PASSWORD_CNT
+    } Password_Type;
 
+/* Functions */
 void driver();
-void password_generate();
+void computer_password();
 void phone_password();
-void quit();
 void randomize(char* arr);
 
 #endif /* generator_hpp */

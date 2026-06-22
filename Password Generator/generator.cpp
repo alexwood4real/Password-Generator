@@ -10,36 +10,41 @@
 #include "generator.hpp"
 #include "iostream"
 
-// holds valid special characters - only 7 for smooth modular arithmatic
+/* holds valid special characters - only 7 for smooth modular arithmatic */
 static char special[] = {'!', '@', '#', '$', '%', '^', '&'};
-
-// string that will hold the password
-static std::string passwordString;
 
 // function when program opens
 void driver()
     {
+    std::cout << "Welcome!\n";
     int choice = 0;
     
-    std::cout << "Welcome!\n"
-              << "Press 1 to generate a computer password.\n"
-              << "Press 2 to generate a phone password.\n";
-    
-    std::cin >> choice;
-    
-    /* generates password */
-    if( choice == 1 )
+    /* will run until exit */
+    while( true )
         {
-        password_generate();
-        }
-    else
-        {
-        phone_password();
-        }
-    
+        std::cout << "Press 1 to generate a computer password.\n"
+                  << "Press 2 to generate a phone password.\n";
+            
+        std::cin >> choice;
+        
+        /* generates password */
+        switch( choice )
+            {
+            case PASSWORD_PHONE:
+                phone_password();
+                break;
+                    
+            case PASSWORD_COMPUTER:
+                computer_password();
+                break;
+                    
+            default:
+                exit( 0 );
+            } /* end of switch-statement */
+        } /* end of while-loop */
     } /* close driveFunction */
 
-void password_generate()
+void computer_password()
     {
     // array used to hold the characters of password - will be shuffled
     char password[ 12 ];
@@ -76,10 +81,7 @@ void password_generate()
         }
     
     std::cout << "Your password is: " << password_string << "\n";
-    
-    // call quit function
-    quit();
-    }
+    } /* computer_password() */
 
 void phone_password()
     {
@@ -107,37 +109,7 @@ void phone_password()
     
     std::cout << "Your phone password is: " << password_string << "\n";
     
-    // call quit funciton
-    quit();
-    }
-
-void quit()
-    {
-    int choice = 0;
-    
-    std::cout << "What would you like to do?\n"
-              << "Press 1 to create a computer password.\n"
-              << "Press 2 to create a phone password.\n"
-              << "Press 0 to quit.\n";
-    
-    std::cin >> choice;
-    
-    if( choice == 1 )
-        {
-        // create another password
-        password_generate();
-        }
-    else if( choice == 2 )
-        {
-        // creates phone password
-        phone_password();
-        }
-    else
-        {
-        // exit program - their loss
-        exit(0);
-        }
-    }
+    } /* phone_password() */
 
 void randomize( char* arr )
     {
@@ -147,4 +119,4 @@ void randomize( char* arr )
         int j = rand() % ( i + 1 );
         std::swap( arr[ i ], arr[ j ] );
         }
-    }
+    } /* randomize */
