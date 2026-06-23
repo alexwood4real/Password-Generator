@@ -6,7 +6,6 @@
 //
 #include <algorithm>
 #include <random>
-#include <vector>
 
 #include "generator.hpp"
 #include "iostream"
@@ -85,36 +84,26 @@ void computer_password()
     /* shuffle characters */
     shuffle( password );
     
-    /* returning string */
-    std::string password_string = password;
-    std::cout << "Your password is: " << password_string << "\n";
+    std::cout << "Your password is: " << password << "\n";
     } /* computer_password() */
 
 void phone_password()
     {
-    // will hold phone password - creates new vector every time
-    std::vector<char> cell_password;
     int size;
     
     std::cout << "How long would you like your password?\n";
     std::cin >> size;
     
-    // generates random password of integers, doesn't need randomize
+    char cell_password[ size + 1 ];
+    cell_password[ size ] = '\0';
+    
+    /* pick random number */
     for( int i = 0; i < size; i++ )
         {
-        cell_password.push_back( 48 + ( rand() % 10 ) );
+        cell_password[ i ] = ( '0' + ( rand() % 10 ) );
         }
     
-    // convert to string
-    std::string password_string = "";
-    
-    // makes vector into password string
-    for( int i = 0; i < cell_password.size(); i++ )
-        {
-        password_string += cell_password[ i ];
-        }
-    
-    std::cout << "Your phone password is: " << password_string << "\n";
+    std::cout << "Your phone password is: " << cell_password << "\n";
     
     } /* phone_password() */
 
